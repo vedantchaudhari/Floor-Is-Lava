@@ -5,16 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMotor : MonoBehaviour {
 
-	[SerializeField]
 	private Camera mCam;
 	private Vector3 mVelocity = Vector3.zero;
 	private Vector3 mRotation = Vector3.zero;
 	private float mCamRot = 0.0f;
 	private float mCurrCamRot = 0.0f;
 	private Rigidbody mRigidbody;
-
-	[SerializeField]
 	private float mCamRotMax = 85.0f;
+	
+	public bool mIsGrounded = true;
+	private float jumpModifier = 3.0f;
 	
 	void Start () {
 		mRigidbody = GetComponent<Rigidbody>();
@@ -23,6 +23,18 @@ public class PlayerMotor : MonoBehaviour {
 	void FixedUpdate() {
 		ExecuteMovement();
 		ExecuteRotation();
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.tag == "Platform") {
+			mIsGrounded = true;
+		}
+	}
+
+	void OnCollisionExit(Collision collision) {
+		if (collision.gameObject.tag == "Platform") {
+			mIsGrounded = false;	
+		}
 	}
 
 	/* PRIVATE FUNCTIONS */
@@ -54,5 +66,9 @@ public class PlayerMotor : MonoBehaviour {
 
 	public void RotateCamera(float camRotation) {
 		this.mCamRot = camRotation;
+	}
+
+	public void Jump() {
+		mRigidbody.AddForce(Vector2.up * jumpModifier, ForceMode.Impulse);
 	}
 }

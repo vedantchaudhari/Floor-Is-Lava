@@ -5,17 +5,30 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour {
 
-	[SerializeField]
 	private float mSpeed = 5.0f;
-	[SerializeField]
 	private float mMouseSensitivity = 3.0f;
 	private PlayerMotor mMotor;
+	public bool mIsJumping = false;
+	public bool mIsDoubleJumpAvailable = true;
 
 	void Start () {
 		this.mMotor = GetComponent<PlayerMotor>();
 	}
 	
 	void Update () {
+		CheckState();
+		GetKeyboardInput();
+		GetMouseInput();
+	}
+
+	/* PRIVATE FUNCTIONS */
+	private void CheckState() {
+		if (mMotor.mIsGrounded == true) {
+			mIsJumping = false;
+			mIsDoubleJumpAvailable = true;
+		}
+	}
+	private void GetKeyboardInput() {
 		// Calculate movement velocit as a 3D vector for keyboard controls
 		float xMov = Input.GetAxisRaw("Horizontal");
 		float zMov = Input.GetAxisRaw("Vertical");
@@ -29,6 +42,20 @@ public class PlayerController : MonoBehaviour {
 		// Apply movement vector
 		mMotor.Move(finalVel);
 
+		// Check if the player pressed the spacebar
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			if (mIsJumping == false) {
+				mMotor.Jump();
+				mIsJumping = true;
+			}
+			else if (mIsJumping == true && mIsDoubleJumpAvailable == true && mMotor.mIsGrounded == false) {
+				mMotor.Jump();
+				mIsDoubleJumpAvailable = false;
+			}
+		}		
+	}
+
+	private void GetMouseInput() {
 		// Calculate rotation as a 3D vector for mouse controls
 		float yRot = Input.GetAxisRaw("Mouse X");
 		// Calculate final rotation vector
@@ -36,9 +63,9 @@ public class PlayerController : MonoBehaviour {
 		// Apply rotation vector
 		mMotor.Rotate(rot);
 
+		// Calculate and apply camera rotation
 		float xRot = Input.GetAxisRaw("Mouse Y");
 		float camRot = xRot * mMouseSensitivity;
-		
 		mMotor.RotateCamera(camRot);
 	}
 }

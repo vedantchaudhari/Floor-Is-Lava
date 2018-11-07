@@ -5,13 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMotor : MonoBehaviour {
 
-	private Camera mCam;
+	public Camera mCam;
 	private Vector3 mVelocity = Vector3.zero;
 	private Vector3 mRotation = Vector3.zero;
 	private float mCamRot = 0.0f;
 	private float mCurrCamRot = 0.0f;
 	private Rigidbody mRigidbody;
-	private float mCamRotMax = 85.0f;
+	private float mCamRotMax = 90.0f;
 	
 	public bool mIsGrounded = true;
 	private float jumpModifier = 3.0f;

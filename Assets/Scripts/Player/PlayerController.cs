@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour {
 
@@ -10,23 +10,34 @@ public class PlayerController : MonoBehaviour {
 	private PlayerMotor mMotor;
 	public bool mIsJumping = false;
 	public bool mIsDoubleJumpAvailable = true;
-
+    public GameObject loseScreen;
+    bool canMove = true;
 	void Start () {
 		this.mMotor = GetComponent<PlayerMotor>();
 	}
-	
-	void Update () {
-		CheckState();
-		GetKeyboardInput();
-		GetMouseInput();
-	}
+
+    void Update()
+    {
+        CheckState();
+        if (canMove)
+        {
+            GetKeyboardInput();
+            GetMouseInput();
+        }
+    }
 
 	/* PRIVATE FUNCTIONS */
 	private void CheckState() {
 		if (mMotor.mIsGrounded == true) {
+
 			mIsJumping = false;
 			mIsDoubleJumpAvailable = true;
 		}
+        if (mMotor.MIsDead == true)
+        {
+            canMove = false;
+            loseScreen.SetActive(true);
+        }
 	}
 	private void GetKeyboardInput() {
 		// Calculate movement velocit as a 3D vector for keyboard controls

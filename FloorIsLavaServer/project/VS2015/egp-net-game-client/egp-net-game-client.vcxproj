@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8385170D-AE99-4E35-86E2-78584C846A8B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>egpnetgameclient</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(ProjectDir)build\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\</IntDir>
+    <OutDir>$(EGP_NET_FW)bin\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(ProjectDir)build\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\</IntDir>
+    <OutDir>$(EGP_NET_FW)bin\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(ProjectDir)build\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\</IntDir>
+    <OutDir>$(EGP_NET_FW)bin\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(ProjectDir)build\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\</IntDir>
+    <OutDir>$(EGP_NET_FW)bin\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN$(PlatformArchitecture);_WINDOWS;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_DEBUG</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(EGP_NET_FW)include\;$(EGP_NET_FW)source\$(ProjectName)\;$(DEV_SDK_DIR)include\;$(ProjectDir)_pre-gen-win\include\;$(ProjectDir)_pre-gen-win\include\util\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(EGP_NET_FW)lib\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\;$(DEV_SDK_DIR)lib\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\;$(DEV_SDK_DIR)lib\$(PlatformTarget)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>egp-net-framework.lib;RakNet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN$(PlatformArchitecture);_WINDOWS;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);_DEBUG</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(EGP_NET_FW)include\;$(EGP_NET_FW)source\$(ProjectName)\;$(DEV_SDK_DIR)include\;$(ProjectDir)_pre-gen-win\include\;$(ProjectDir)_pre-gen-win\include\util\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(EGP_NET_FW)lib\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\;$(DEV_SDK_DIR)lib\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\;$(DEV_SDK_DIR)lib\$(PlatformTarget)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>egp-net-framework.lib;RakNet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN$(PlatformArchitecture);_WINDOWS;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(EGP_NET_FW)include\;$(EGP_NET_FW)source\$(ProjectName)\;$(DEV_SDK_DIR)include\;$(ProjectDir)_pre-gen-win\include\;$(ProjectDir)_pre-gen-win\include\util\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(EGP_NET_FW)lib\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\;$(DEV_SDK_DIR)lib\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\;$(DEV_SDK_DIR)lib\$(PlatformTarget)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>egp-net-framework.lib;RakNet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN$(PlatformArchitecture);_WINDOWS;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);NDEBUG</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(EGP_NET_FW)include\;$(EGP_NET_FW)source\$(ProjectName)\;$(DEV_SDK_DIR)include\;$(ProjectDir)_pre-gen-win\include\;$(ProjectDir)_pre-gen-win\include\util\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(EGP_NET_FW)lib\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\;$(DEV_SDK_DIR)lib\$(PlatformTarget)\$(PlatformToolset)\$(Configuration)\;$(DEV_SDK_DIR)lib\$(PlatformTarget)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>egp-net-framework.lib;RakNet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Image Include="_pre-gen-win\resource\egp-net-game-client.ico" />
+    <Image Include="_pre-gen-win\resource\small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\egp-net-game-client\fw\egpNetClientPeerManager.cpp" />
+    <ClCompile Include="_pre-gen-win\source\egp-net-game-client.cpp" />
+    <ClCompile Include="_pre-gen-win\source\util\stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="_pre-gen-win\resource\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\source\egp-net-game-client\fw\egpNetClientPeerManager.h" />
+    <ClInclude Include="_pre-gen-win\include\egp-net-game-client.h" />
+    <ClInclude Include="_pre-gen-win\include\util\Resource.h" />
+    <ClInclude Include="_pre-gen-win\include\util\stdafx.h" />
+    <ClInclude Include="_pre-gen-win\include\util\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="_pre-gen-win\resource\egp-net-game-client.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

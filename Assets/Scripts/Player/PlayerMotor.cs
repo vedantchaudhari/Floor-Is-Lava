@@ -14,9 +14,23 @@ public class PlayerMotor : MonoBehaviour {
 	private float mCamRotMax = 90.0f;
 	
 	public bool mIsGrounded = true;
-	private float jumpModifier = 3.0f;
-	
-	void Start () {
+    private bool mIsDead = false;
+    private float jumpModifier = 15.0f;
+
+    public bool MIsDead
+    {
+        get
+        {
+            return mIsDead;
+        }
+
+        set
+        {
+            mIsDead = value;
+        }
+    }
+
+    void Start () {
 		mRigidbody = GetComponent<Rigidbody>();
 	}
 	
@@ -29,7 +43,11 @@ public class PlayerMotor : MonoBehaviour {
 		if (collision.gameObject.tag == "Platform") {
 			mIsGrounded = true;
 		}
-	}
+        if (collision.gameObject.tag == "Lava")
+        {
+            MIsDead = true;
+        }
+    }
 
 	void OnCollisionExit(Collision collision) {
 		if (collision.gameObject.tag == "Platform") {

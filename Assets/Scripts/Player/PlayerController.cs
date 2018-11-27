@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public bool mIsDoubleJumpAvailable = true;
     public GameObject loseScreen;
 
+    public GameObject pushCollider;
+    
     bool beginPush = false;
     bool endPush = false;
     bool canMove = true;
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         this.mMotor = GetComponent<PlayerMotor>();
         Cursor.visible = false;
+        pushCollider.SetActive(false);
     }
 
     void Update()
@@ -38,8 +41,10 @@ public class PlayerController : MonoBehaviour
         }
         if (beginPush)
             pushHand();
-        if (endPush)
+        else if (endPush)
             pullHand();
+        else
+            pushCollider.SetActive(false);
     }
 
     /* PRIVATE FUNCTIONS */
@@ -105,6 +110,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetMouseButton(0) && !beginPush && !endPush)
         {
+            pushCollider.SetActive(true);
             beginPush = true;
         }
 
@@ -113,18 +119,22 @@ public class PlayerController : MonoBehaviour
     private void pushHand()
     {
 
-        hand.transform.position = Vector3.Lerp(hand.transform.position, handAnchorPush.transform.position,Time.deltaTime * 5);
-        if (hand.transform.position == handAnchorPush.transform.position)
+        hand.transform.position = Vector3.Lerp(hand.transform.position, handAnchorPush.transform.position,Time.deltaTime * 7);
+        if ((hand.transform.position - handAnchorPush.transform.position).magnitude < 0.05)
         {
+            hand.transform.position = handAnchorPush.transform.position;
             beginPush = false;
             endPush = true;
         }
     }
     private void pullHand()
     {
-        hand.transform.position = Vector3.Lerp(hand.transform.position, handAnchor.transform.position, Time.deltaTime * 5);
-        if (hand.transform.position == handAnchor.transform.position) 
+        hand.transform.position = Vector3.Lerp(hand.transform.position, handAnchor.transform.position, Time.deltaTime * 7);
+        if ((hand.transform.position - handAnchor.transform.position).magnitude < 0.05)
+        {
             endPush = false;
+            hand.transform.position = handAnchor.transform.position;
+        }
         
     }
 }

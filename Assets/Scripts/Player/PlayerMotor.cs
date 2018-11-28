@@ -46,6 +46,8 @@ public class PlayerMotor : MonoBehaviour {
         if (collision.gameObject.tag == "Lava")
         {
             MIsDead = true;
+            mRigidbody.constraints = RigidbodyConstraints.None;
+            mRigidbody.velocity.Set(0,0,0);
         }
     }
 

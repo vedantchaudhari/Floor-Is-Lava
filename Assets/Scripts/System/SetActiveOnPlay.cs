@@ -7,7 +7,7 @@ public class SetActiveOnPlay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(true);
+        gameObject.GetComponent<MeshRenderer>().enabled  = true;
     }
 
     // Update is called once per frame

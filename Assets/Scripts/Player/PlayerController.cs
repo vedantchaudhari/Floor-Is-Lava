@@ -17,9 +17,12 @@ public class PlayerController : MonoBehaviour
     
     bool beginPush = false;
     bool endPush = false;
-    bool canMove = true;
+    public bool canMove = true;
 
-   
+
+    public GameObject skull;
+    public GameObject body;
+
     public GameObject handAnchor;
     public GameObject handAnchorPush;
     public GameObject hand;
@@ -59,6 +62,14 @@ public class PlayerController : MonoBehaviour
         if (mMotor.MIsDead == true)
         {
             canMove = false;
+            mMotor.mRigidbody.velocity = Vector3.zero;
+            body.SetActive(false);
+            hand.SetActive(false);
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
+            skull.SetActive(true);
+            skull.transform.parent = null;
+
             loseScreen.SetActive(true);
         }
     }

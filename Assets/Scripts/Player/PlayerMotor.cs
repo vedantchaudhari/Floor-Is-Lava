@@ -10,7 +10,7 @@ public class PlayerMotor : MonoBehaviour {
 	private Vector3 mRotation = Vector3.zero;
 	private float mCamRot = 0.0f;
 	private float mCurrCamRot = 0.0f;
-	private Rigidbody mRigidbody;
+    public Rigidbody mRigidbody;
 	private float mCamRotMax = 90.0f;
 	
 	public bool mIsGrounded = true;

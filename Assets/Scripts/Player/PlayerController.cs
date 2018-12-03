@@ -13,12 +13,16 @@ public class PlayerController : MonoBehaviour
     public bool mIsDoubleJumpAvailable = true;
     public GameObject loseScreen;
 
+    int playerNumber = 0;
+
     public GameObject pushCollider;
     
     bool beginPush = false;
     bool endPush = false;
     public bool canMove = true;
 
+
+    bool check = true;
 
     public GameObject skull;
     public GameObject body;
@@ -36,7 +40,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        CheckState();
+        if(check)
+          CheckState();
         if (canMove)
         {
             GetKeyboardInput();
@@ -66,11 +71,16 @@ public class PlayerController : MonoBehaviour
             body.SetActive(false);
             hand.SetActive(false);
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            
 
             skull.SetActive(true);
             skull.transform.parent = null;
+            check = false;
 
-            loseScreen.SetActive(true);
+            mMotor.mRigidbody.useGravity = false;
+
+            GameObject.FindGameObjectWithTag("Lava").GetComponent<LavaController>().NumLivingPlayers--;
+            //loseScreen.SetActive(true);
         }
     }
     private void GetKeyboardInput()
@@ -147,5 +157,15 @@ public class PlayerController : MonoBehaviour
             hand.transform.position = handAnchor.transform.position;
         }
         
+    }
+
+    public void setPlayerNum(int num)
+    {
+        playerNumber = num;
+    }
+
+    public int getPlayerNum()
+    {
+        return playerNumber;
     }
 }

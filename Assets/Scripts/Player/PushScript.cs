@@ -5,7 +5,7 @@ using UnityEngine;
 public class PushScript : MonoBehaviour
 {
     Vector3 PushDir;
-    public float pushForce = 300;
+    public float pushForce = 600;
     
     // Start is called before the first frame update
     void Start()

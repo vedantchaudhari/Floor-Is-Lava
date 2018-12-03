@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject skull;
     public GameObject body;
+    
+    bool isLocal = true;
 
     public GameObject handAnchor;
     public GameObject handAnchorPush;

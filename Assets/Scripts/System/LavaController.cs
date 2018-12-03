@@ -8,7 +8,7 @@ public class LavaController : MonoBehaviour
     public int NumLivingPlayers;
     GameObject[] playerList;
 
-    float[] LavaHeights = { -16f, -13.95f, -12.73f, -11.25f, -10.23f };
+    float[] LavaHeights = { -13.95f, -11.75f, -10.23f };
      // Use this for initialization
     void Start()
     {
@@ -28,10 +28,14 @@ public class LavaController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (gameObject.transform.position.y <= LavaHeights[LavaHeights.Length - NumLivingPlayers])
-            gameObject.transform.SetPositionAndRotation(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.005f, gameObject.transform.position.z), gameObject.transform.rotation);
-        print(NumLivingPlayers);
-        print(LavaHeights.Length);
+        if (NumLivingPlayers > 1)
+        {
+            if (gameObject.transform.position.y <= LavaHeights[LavaHeights.Length - (NumLivingPlayers-1)])
+                gameObject.transform.SetPositionAndRotation(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.0015f, gameObject.transform.position.z), gameObject.transform.rotation);
+
+        }
+      //  print(NumLivingPlayers);
+      //  print(LavaHeights.Length);
     }
 
 

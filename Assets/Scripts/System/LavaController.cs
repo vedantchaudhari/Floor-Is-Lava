@@ -20,9 +20,9 @@ public class LavaController : MonoBehaviour
             player.GetComponent<PlayerController>().setPlayerNum(NumLivingPlayers);
             NumLivingPlayers++;
         }
-        print(NumLivingPlayers);
-        print(playerList.Length);
-        print(LavaHeights.Length);
+      //  print(NumLivingPlayers);
+     //   print(playerList.Length);
+      //  print(LavaHeights.Length);
     }
 
     // Update is called once per frame

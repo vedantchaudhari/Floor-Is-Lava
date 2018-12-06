@@ -7,7 +7,9 @@ public class ChatScript : MonoBehaviour
     public Text chatBox;
     public InputField chatInput;
 
-    bool usingChat = false;
+    string typedText;
+
+    public bool usingChat = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,35 +21,41 @@ public class ChatScript : MonoBehaviour
     void Update()
     {
         inputCheck();
-        print(chatInput.IsActive());
-        print(usingChat);
+        //print(chatInput.IsActive());
+        //print(usingChat);
     }
 
     void inputCheck()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (chatInput.GetComponent<Text>())
+            //print("enterPressed!");
+            if (chatInput.text != "")
                 sendChat();
             toggleChatActivity();
         }
-        if(usingChat)
-        {
-        }
+       
     }
 
     void toggleChatActivity()
     {
-       
+        //print("chat toggled!");
         usingChat = !usingChat;
         if (usingChat)
+        {
             chatInput.ActivateInputField();
+            
+        }
         else
             chatInput.DeactivateInputField();
     }
 
     void sendChat()
     {
-
+        typedText = chatInput.text;
+        chatBox.text += "\n";
+        chatBox.text += typedText;
+        chatInput.text = "";
+        toggleChatActivity();
     }
 }

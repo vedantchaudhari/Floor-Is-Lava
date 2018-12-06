@@ -3,7 +3,16 @@ guid: 2e9a255a88ed04c23a80c984a62fe821
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - loseScreen: {instanceID: 0}
+  - pushCollider: {instanceID: 0}
+  - skull: {instanceID: 0}
+  - body: {instanceID: 0}
+  - handAnchor: {instanceID: 0}
+  - handAnchorPush: {instanceID: 0}
+  - hand: {instanceID: 0}
+  - chatScreen: {fileID: 3965217137028479843, guid: 3d8af78f5130e044694d383543514138,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

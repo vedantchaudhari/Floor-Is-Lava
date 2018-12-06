@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     public GameObject handAnchorPush;
     public GameObject hand;
 
+    public Canvas chatScreen;
+
     void Start()
     {
         this.mMotor = GetComponent<PlayerMotor>();
@@ -42,6 +44,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (chatScreen.GetComponent<ChatScript>().usingChat)
+            canMove = false;
+        else
+            canMove = true;
         if(check)
           CheckState();
         if (canMove)

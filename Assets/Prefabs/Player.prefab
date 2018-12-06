@@ -856,6 +856,8 @@ MonoBehaviour:
   handAnchor: {fileID: 6662138091103207003}
   handAnchorPush: {fileID: 4542560007410579405}
   hand: {fileID: 6662138090571745483}
+  chatScreen: {fileID: 3965217137028479843, guid: 3d8af78f5130e044694d383543514138,
+    type: 3}
 --- !u!114 &6662138091502949148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1136,14 +1138,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6662138091502949151}
     m_Modifications:
-    - target: {fileID: 100002, guid: 407df4e816d17ca458b7abc5f7487ce8, type: 3}
-      propertyPath: m_Name
-      value: skull
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 407df4e816d17ca458b7abc5f7487ce8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 407df4e816d17ca458b7abc5f7487ce8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.041
@@ -1210,6 +1204,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 407df4e816d17ca458b7abc5f7487ce8, type: 3}
       propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 407df4e816d17ca458b7abc5f7487ce8, type: 3}
+      propertyPath: m_Name
+      value: skull
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 407df4e816d17ca458b7abc5f7487ce8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 407df4e816d17ca458b7abc5f7487ce8, type: 3}

@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Lava 7
   m_Shader: {fileID: 4800000, guid: eb9afa2b617031247ac6bc87e88c9b58, type: 3}
   m_ShaderKeywords: _EMISSION
@@ -116,8 +117,8 @@ Material:
     - _TextureDistanse: 1
     - _TextureStrench: 1
     - _UVSec: 0
-    - _U_Speed: 0.05
-    - _V_Speed: 0.025
+    - _U_Speed: 0.002
+    - _V_Speed: 0.001
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

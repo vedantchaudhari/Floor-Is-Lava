@@ -847,7 +847,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mIsJumping: 0
   mIsDoubleJumpAvailable: 1
-  loseScreen: {fileID: 0}
+  loseScreen: {fileID: 2273050993556657689, guid: 0b18f91eda6e5d24b94dc1d22f656fda,
+    type: 3}
   pushCollider: {fileID: 1790273293032008147}
   canMove: 1
   skull: {fileID: 2957186944482509556}
